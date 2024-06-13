@@ -1,58 +1,56 @@
-let Main = document.getElementsByTagName("main")[0];
-let allData;
+let main = document.getElementsByTagName("main")[0];
+let CategoryInpt = document.getElementById("CategoryInpt");
+let PriceFilter = document.getElementById("PriceFilter");
+let DisplayPrice = document.getElementById("DisplayPrice");
+let AllData = [];
 
 
-let DropDown = document.getElementById("DropDown");
+PriceFilter.addEventListener("change",(e)=>{
+    let FilterPrice = e.target.value;
+    DisplayPrice.innerHTML = `<span>Price ${FilterPrice}</span>`
+    let FilteredData = AllData.filter((e)=>e.price <= FilterPrice);
+    
+    Display(FilteredData);
+})
 
-DropDown.addEventListener("change",(e)=>
-{
+CategoryInpt.addEventListener("change",(e)=>{
     let SelectedCategory = e.target.value;
 
-    if(SelectedCategory == "All")
+    if (SelectedCategory == "All")
     {
-        console.log("allData",allData)
-        let NewProducts = allData;
-        display(NewProducts)
-        console.log(NewProducts)
+        Display(AllData);
     }
-    else if(SelectedCategory == "Mens")
+    else if (SelectedCategory == "Mens")
     {
-        console.log("allData",allData)
-        let NewProducts = allData.filter((e)=>e.category == "men's clothing")
-        display(NewProducts)
-        console.log(NewProducts)
+        let FilteredData = AllData.filter((e)=>e.category == "men's clothing");
+        Display(FilteredData);
     }
-    else if(SelectedCategory == "Women")
+    else if (SelectedCategory == "Women")
     {
-        console.log("allData",allData)
-        let NewProducts = allData.filter((e)=>e.category == "women's clothing")
-        display(NewProducts)
-        console.log(NewProducts)
+        let FilteredData = AllData.filter((e)=>e.category == "women's clothing");
+        Display(FilteredData);
     }
-    else if(SelectedCategory == "Tech")
+    else if (SelectedCategory == "Tech")
     {
-        console.log("allData",allData)
-        let NewProducts = allData.filter((e)=>e.category == "electronics")
-        display(NewProducts)
-        console.log(NewProducts)
+        let FilteredData = AllData.filter((e)=>e.category == "electronics");
+        Display(FilteredData);
     }
-
 })
 
 
-function display(data)
+
+function Display(Data)
 {
-    Main.innerHTML = ""
-    data.map((e)=>
-    {
-        Main.innerHTML += `
-          <div class="ProductCard">
+    main.innerHTML = "";
+    Data.map((e)=>{
+        main.innerHTML += `
+            <div class="ProductCard">
             <img src=${e.image} alt="">
             <div class="ProductContent">
                 <h2>${e.title}</h2>
                 <p>Price: 
-                    <del>${e.price}</del>
-                    <span>${Math.round(e.price*0.8)}$</span>
+                    <del>${e.price*2}</del>
+                    <span>${Math.round((e.price*2)*0.8)}$</span>
                     <b>20% Off</b>
                 </p>
                <div class="Btns">
@@ -62,19 +60,23 @@ function display(data)
             </div>
         </div>
 
+        
         `
     })
 }
 
 
 
-async function GetData()
+function GetData()
 {
-    let Res = await fetch("https://fakestoreapi.com/products");
-    let Data = await Res.json();
-    allData = Data;
-    console.log(Data)
-    display(Data);
+    fetch("https://fakestoreapi.com/products")
+    .then((Res)=>{
+        return Res.json();
+    }).then((Data)=>{
+        console.log(Data)
+        AllData = Data;
+        Display(Data)
+    })
 }
 
 GetData()

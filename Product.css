@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -7,11 +8,14 @@
 body {
     background-color: rgb(237, 235, 235);
     color: rgb(26, 26, 26);
-    font-family: sans-serif;
+    font-family: sans-serif !important;
 }
 
 nav
 {
+
+    position: sticky;
+    top: 0;
     height: 80px;
     display: flex;
     align-items: center;
@@ -102,6 +106,20 @@ nav ul li:hover
 {
     transform: scale(1.2)rotate(-10deg);
 }
+
+
+#SecondaryNavbar
+{
+    background-color: white;
+    margin: 2rem;
+    padding: .5rem 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
 
 
 main
