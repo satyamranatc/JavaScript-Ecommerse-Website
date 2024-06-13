@@ -1,0 +1,184 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(237, 235, 235);
+    color: rgb(26, 26, 26);
+    font-family: sans-serif;
+}
+
+nav
+{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0px 10px 10px lightgray;
+}
+a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+#LogoSection
+{
+    display: flex;
+    align-items: center;
+}
+
+
+#SearchBar
+{
+    /* border: 1px solid red; */
+    width: 40%;
+    display: flex;
+
+
+}
+
+#SearchBar input
+{
+    width: 100%;
+    padding: 9px 25px;
+    border-radius: 7px;
+    border: 1px solid rgb(6, 126, 255);
+}
+
+#SearchBar button
+{
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 7px;
+
+}
+
+
+nav ul
+{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
+}
+
+nav ul li
+{
+    transition: 0.3s;
+    cursor: pointer;
+    user-select: none;
+}
+
+nav ul li:hover
+{
+    color: white;
+    padding: 8px 17px;
+    border-radius: 20px;
+    background-color:#fe8700 ;
+}
+
+#Cart
+{
+    background: transparent;
+    padding: 0;
+}
+
+#Cart img{
+    transition: 0.3s;
+    height: 2.5rem;
+    margin-left: 2rem;
+}
+
+#Cart img:hover
+{
+    transform: scale(1.2)rotate(-10deg);
+}
+
+
+main
+{
+    background-color: ghostwhite;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    height: fit-content;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    padding: 1rem;
+}
+
+
+
+
+
+.ProductCard
+{
+
+    height: 600px;
+    min-width: 350px;
+    flex: 1;
+
+    border-radius: 9px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0px 5px 10px gray;
+}
+
+.ProductCard img
+{
+    height: 60%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.ProductContent
+{
+
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
+.ProductContent h2
+{
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+.ProductContent p
+{
+    color: rgb(91, 90, 90);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.Btns
+{
+    display: flex;
+    column-gap: 1rem;
+}
+.Btns button:first-of-type
+{
+    padding: .5rem 1rem;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+}
+.Btns button:last-of-type
+{
+    padding: .5rem 1rem;
+    border: none;
+    background-color: #fe8700;
+    color: white;
+    border-radius: 30px;
+}
